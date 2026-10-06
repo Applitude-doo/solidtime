@@ -1,0 +1,5 @@
+.env
+laravel.env
+logs/
+app-storage/
+letsencrypt/

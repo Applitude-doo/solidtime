@@ -1,0 +1,7 @@
+# Middlewares referenced by apps as "<name>@file".
+http:
+  middlewares:
+    redirect-to-https:
+      redirectScheme:
+        scheme: https
+        permanent: true
