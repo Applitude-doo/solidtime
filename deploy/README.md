@@ -59,6 +59,17 @@ docker compose exec app php artisan test:email you@applitude.tech
 
 Check: `docker compose ps` (all healthy), then open `https://time.applitude.tech`.
 
+### Mail (Resend)
+
+Needed for invitations, password resets and email verification.
+
+1. Resend → API Keys → create key, permission **Sending access**, domain `applitude.tech`.
+2. Put it in `laravel.env` as `MAIL_PASSWORD` (host/user/port are prefilled).
+3. `docker compose up -d` (recreates containers with the new env — `restart` does not reload `env_file`).
+4. `docker compose exec app php artisan test:email you@applitude.tech`
+
+Invitation mails are queued — if they don't arrive, check `docker compose logs queue`.
+
 ## 5. Backups
 
 ```bash
